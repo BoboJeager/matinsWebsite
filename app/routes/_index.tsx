@@ -1,4 +1,9 @@
-import type { MetaFunction } from "@remix-run/node";
+import type { MetaFunction, LinksFunction } from "@remix-run/node";
+import { useState } from "react";
+import { mockCharacters } from "~/mock/characters";
+import Card from "~/components/card";
+import CardCarousel from "~/components/cardCarousel";
+import indexStyle from '~/styles/index.css?url';
 
 export const meta: MetaFunction = () => {
   return [
@@ -7,35 +12,16 @@ export const meta: MetaFunction = () => {
   ];
 };
 
+// Here we define the links function to include the CSS
+export const links: LinksFunction = () => {
+  return [{ rel: "stylesheet", href: indexStyle }];
+};
+
 export default function Index() {
+
   return (
-    <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.8" }}>
-      <h1>Welcome to Remix</h1>
-      <ul>
-        <li>
-          <a
-            target="_blank"
-            href="https://remix.run/tutorials/blog"
-            rel="noreferrer"
-          >
-            15m Quickstart Blog Tutorial
-          </a>
-        </li>
-        <li>
-          <a
-            target="_blank"
-            href="https://remix.run/tutorials/jokes"
-            rel="noreferrer"
-          >
-            Deep Dive Jokes App Tutorial
-          </a>
-        </li>
-        <li>
-          <a target="_blank" href="https://remix.run/docs" rel="noreferrer">
-            Remix Docs
-          </a>
-        </li>
-      </ul>
+    <div>
+      <CardCarousel characters={mockCharacters}/>
     </div>
   );
 }

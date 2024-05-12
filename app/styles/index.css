@@ -1,0 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Khand:wght@300;400;500;600;700&display=swap");
+
+body {
+  color: white;
+  margin: 5px;
+  font-family: "khand", "san sarif";
+  width: 100vh;
+  height: 100vh;
+  background: linear-gradient(to bottom right, #ada8a8 5%, #1e1d1d 35%) bottom
+      right,
+    linear-gradient(to bottom left, #ada8a8 5%, #1e1d1d 35%) bottom left,
+    linear-gradient(to top left, #ada8a8 5%, #1e1d1d 35%) top left,
+    linear-gradient(to top right, #ada8a8 5%, #1e1d1d 35%) top right;
+  background-size: 50% 50%;
+  background-repeat: no-repeat;
+}
