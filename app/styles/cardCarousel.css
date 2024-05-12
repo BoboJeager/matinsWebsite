@@ -1,37 +1,30 @@
-.carousel {
-  width: 100vw;
-  height: 100vh;
+.carousel-container {
   overflow: hidden;
-}
-
-.carousel-control-prev,
-.carousel-control-next {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 1000;
-  cursor: pointer;
-  background-color: rgba(0, 0, 0, 0.5);
-  color: white;
-  padding: 10px;
-  border: none;
-}
-
-.carousel-control-prev {
-  left: 10px;
-}
-
-.carousel-control-next {
-  right: 10px;
-}
-
-.carousel-track {
+  width: 100vw;
   display: flex;
+  flex-direction: column; /* Stack buttons and carousel vertically */
+  justify-content: center;
+  align-items: center; /* Center horizontally */
+  position: relative;
+  height: 100vh; /* Full viewport height */
+}
+
+.carousel {
+  flex: 1; /* Take available space after buttons */
+  display: flex;
+  position: relative;
+  width: 100%; /* Full width of the container */
   justify-content: center;
   align-items: center;
-  transition: transform 0.5s ease;
+  margin: 30px;
 }
 
 .carousel-item {
-  transition: transform 0.5s ease;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.5s ease-in-out;
+  width: 35%; /* Adjust to 33.33% of the carousel's width */
+  height: 80%;
 }

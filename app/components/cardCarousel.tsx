@@ -8,41 +8,53 @@ interface CardCarouselProps {
 }
 
 const CardCarousel = ({ characters }: CardCarouselProps) => {
-    const [activeIndex, setActiveIndex] = useState<number>(0);
+    const [currentIndex, setCurrentIndex] = useState(0);
     const totalItems = characters.length;
 
-    const handleScroll = (direction: 'left' | 'right') => {
-        setActiveIndex(prevIndex => {
-            return direction === 'left'
-                ? (prevIndex - 1 + totalItems) % totalItems
-                : (prevIndex + 1) % totalItems;
-        });
+    const handleNext = () => {
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % totalItems);
+    };
+
+    const handlePrevious = () => {
+        setCurrentIndex((prevIndex) => (prevIndex - 1 + totalItems) % totalItems);
     };
 
     const getItemStyle = (index: number) => {
-        const offset = (index - activeIndex + totalItems) % totalItems;
-        const positionFromMiddle = Math.abs(offset - Math.floor(totalItems / 2));
-        const scale = positionFromMiddle === 0 ? 1.2 : 1 - 0.1 * positionFromMiddle;
+        let position = (index - currentIndex + totalItems) % totalItems;
+        let xOffset = (position - 1) * 50;  
+        let scale = position === 1 ? 1 : 0.7; 
+        let visibility = (position >= -1 && position <= 2) ? 1 : 0; 
+    
+        if (position === -1 || position === totalItems - 1) { // Adjust for the position just before the first
+            xOffset = -50; 
+        }
+        if (position === 3) { 
+            xOffset = 150; 
+        }
+    
         return {
-            transform: `scale(${scale})`,
-            opacity: 1 - 0.3 * positionFromMiddle,
-            transition: 'transform 0.5s, opacity 0.5s',
-            display: positionFromMiddle <= 2 ? 'block' : 'none' // Adjust this to increase/decrease visible cards
+            transform: `translateX(${xOffset}%) scale(${scale})`,
+            transition: 'transform 0.5s ease-in-out, opacity 0.5s ease-in-out',
+            width: '33.33%', // Each item takes about one-third of the carousel width
+            opacity: visibility // Manage visibility through opacity
         };
     };
+    
 
     return (
-        <div className="carousel">
-            <button onClick={() => handleScroll('left')} className="carousel-control-prev">&#10094;</button>
-            <div className="carousel-track">
-                {characters.map((character, index) => (
-                    <div className="carousel-item" style={getItemStyle(index)} key={character.name}>
-                        <Card character={character} />
-                    </div>
-                ))}
-            </div>
-            <button onClick={() => handleScroll('right')} className="carousel-control-next">&#10095;</button>
+        <div className="carousel-container">
+        <div className="button-container">
+            <button onClick={handlePrevious} className="carousel-button">Previous</button>
+            <button onClick={handleNext} className="carousel-button">Next</button>
         </div>
+        <div className="carousel">
+            {characters.map((character, index) => (
+                <div key={character.name} className="carousel-item" style={getItemStyle(index)}>
+                    <Card character={character} />
+                </div>
+            ))}
+        </div>
+    </div>
     );
 };
 
