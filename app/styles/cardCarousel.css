@@ -1,12 +1,33 @@
 .carousel-container {
   overflow: hidden;
-  width: 100vw;
+  width: 100%;
   display: flex;
   flex-direction: column; /* Stack buttons and carousel vertically */
   justify-content: center;
   align-items: center; /* Center horizontally */
   position: relative;
-  height: 100vh; /* Full viewport height */
+  height: 90vh; /* Full viewport height */
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 600px;
+  margin-top: 0; /* Space between buttons and carousel */
+}
+
+.button-container span {
+  margin-top: 5px;
+}
+
+.carousel-button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: white;
 }
 
 .carousel {
@@ -16,7 +37,7 @@
   width: 100%; /* Full width of the container */
   justify-content: center;
   align-items: center;
-  margin: 30px;
+  margin-bottom: 0;
 }
 
 .carousel-item {
@@ -24,7 +45,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: transform 0.5s ease-in-out;
-  width: 35%; /* Adjust to 33.33% of the carousel's width */
-  height: 80%;
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  width: 33.33%; /* Each item takes about one-third of the carousel's width */
+  height: 70%; /* Adjust height to be shorter */
+  padding: 0 1.5rem; /* Add padding to create space between items */
 }

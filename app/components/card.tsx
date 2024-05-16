@@ -14,7 +14,7 @@ const Card = ({ character }: { character: Character }) =>{
         <div>
         <div className ="card">
             <img src = {Pic} />
-            <div className="card-container" style={{borderColor: borderColor, boxShadow: `0px 0px 15px ${borderColor}` }}>
+            <div className="card-container" style={{borderColor: borderColor, boxShadow: `0px 0px 30px ${borderColor}` }}>
                 <div className="character-name" style={{backgroundColor: backgroundColor, borderColor:borderColor, }}>
                     <span>{character.name}</span>
                 </div>

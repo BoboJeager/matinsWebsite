@@ -1,41 +1,47 @@
 .card {
   display: flex;
   flex-direction: column;
-  width: 300px;
+  width: 110%; /* Use smaller percentage for width */
+  max-width: 400px; /* Reduce max-width */
   height: auto;
   position: relative;
   justify-content: center;
   align-items: center;
+  margin: 2%; /* Use percentage for margin */
 }
 
 .character-name {
-  margin: 10px 0px 5px 0px;
-  font-size: 18px;
+  margin: 2% 0 1% 0; /* Use percentage for margin */
+  font-size: 1rem; /* 16px */
   border: 2px solid;
-  width: 230px;
+  width: 80%; /* Use percentage for width */
+  max-width: 160px; /* Adjust max-width */
   border-radius: 50px;
 }
 
 .character-class {
-  margin: 5px;
-  font-size: 12px;
+  margin: 1%; /* Use percentage for margin */
+  font-size: 0.75rem; /* 12px */
   border: 2px solid;
-  width: 180px;
+  width: 70%; /* Use percentage for width */
+  max-width: 140px; /* Adjust max-width */
   border-radius: 50px;
 }
 
 .lore-box span {
-  margin: 5px;
-  font-size: 12px;
+  margin: 1%; /* Use percentage for margin */
+  font-size: 0.75rem; /* 12px */
   border: 2px solid;
-  width: 230px;
+  width: 80%; /* Use percentage for width */
+  max-width: 160px; /* Adjust max-width */
   border-radius: 10px;
 }
 
 .card-container {
   background: #3b3939;
-  width: 260px;
-  height: 390px;
+  width: 80%; /* Use smaller percentage for width */
+  max-width: 200px; /* Reduce max-width */
+  height: auto;
   border: 2px solid;
   border-radius: 10px;
   text-align: center;
@@ -44,8 +50,11 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+  margin: 2%;
+  padding: 4px;
 }
-ul {
+
+.card-container ul {
   list-style-type: none;
   display: flex;
   flex-wrap: wrap;
@@ -53,21 +62,24 @@ ul {
   padding: 0;
   margin: 0;
 }
+
 img {
-  width: 110%;
-  height: 110%;
+  width: 100%;
+  height: auto;
   padding: 0;
   margin: 0;
 }
 
-li {
-  width: 30px;
-  margin: 2px 5px;
+.card-container li {
+  width: 20px;
+  margin: 0.5px 5px;
   background: #d9d9d9;
   border-radius: 5px;
+  padding: 1px;
+  font-size: 14px;
 }
 
-li h4,
+.card-container li h4,
 span {
   margin: 0;
   padding: 0;
@@ -76,14 +88,74 @@ span {
 .lore-box {
   display: flex;
   flex-direction: column;
+  align-items: flex-start; /* Left align the content */
+  text-align: left;
+  width: 100%;
+  padding: 5px;
+  padding-left: 2rem; /* Added left padding */
 }
 
 .lore-box span,
 .lore-box p {
   margin: 0;
-  text-align: left;
+  width: 100%;
 }
 
 .lore-box span {
   padding: 3px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .card {
+    max-width: 160px; /* Adjust max-width for smaller screens */
+    margin: 3%; /* Adjust margin for smaller screens */
+  }
+
+  .character-name {
+    font-size: 0.875rem; /* 14px */
+    max-width: 140px; /* Adjust max-width */
+  }
+
+  .character-class {
+    font-size: 0.75rem; /* 12px */
+    max-width: 120px; /* Adjust max-width */
+  }
+
+  .lore-box span {
+    font-size: 0.75rem; /* 12px */
+    max-width: 140px; /* Adjust max-width */
+  }
+
+  .card-container {
+    max-width: 180px; /* Adjust max-width */
+    margin: 3%; /* Adjust margin for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    max-width: 120px; /* Adjust max-width for smaller screens */
+    margin: 5%; /* Adjust margin for smaller screens */
+  }
+
+  .character-name {
+    font-size: 0.75rem; /* 12px */
+    max-width: 120px; /* Adjust max-width */
+  }
+
+  .character-class {
+    font-size: 0.625rem; /* 10px */
+    max-width: 100px; /* Adjust max-width */
+  }
+
+  .lore-box span {
+    font-size: 0.625rem; /* 10px */
+    max-width: 120px; /* Adjust max-width */
+  }
+
+  .card-container {
+    max-width: 140px; /* Adjust max-width */
+    margin: 5%; /* Adjust margin for smaller screens */
+  }
 }

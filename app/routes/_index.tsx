@@ -1,9 +1,9 @@
 import type { MetaFunction, LinksFunction } from "@remix-run/node";
 import { useState } from "react";
 import { mockCharacters } from "~/mock/characters";
-import Card from "~/components/card";
 import CardCarousel from "~/components/cardCarousel";
 import indexStyle from '~/styles/index.css?url';
+import BriefIntro from "~/components/briefIntroduction";
 
 export const meta: MetaFunction = () => {
   return [
@@ -20,8 +20,13 @@ export const links: LinksFunction = () => {
 export default function Index() {
 
   return (
-    <div>
-      <CardCarousel characters={mockCharacters}/>
+    <div className="homepage">
+      <div className="carousel-component">
+        <CardCarousel characters={mockCharacters}/>
+      </div>
+      <div className="brief-component">
+        <BriefIntro/>
+      </div>
     </div>
   );
 }

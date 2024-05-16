@@ -1,0 +1,46 @@
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-80%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Ensure the parent container takes up the full viewport height */
+.intro-parent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh; /* Full viewport height */
+  width: 100%; /* Full viewport width */
+  color: white; /* Set text color */
+}
+
+.intro-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start; /* Corrected from left to flex-start */
+  margin: 0px 20px;
+  padding: 40px;
+  opacity: 0; /* Start with invisible */
+  animation: slideIn 1s forwards; /* Apply animation to the whole box */
+}
+
+.intro-box h1,
+.intro-box span {
+  opacity: 0; /* Start with invisible */
+  animation: slideIn 0.5s forwards; /* Apply animation */
+}
+
+.intro-box h1 {
+  animation-delay: 0.5s; /* Delay for staggered effect */
+}
+
+.intro-box span {
+  animation-delay: 1s; /* Longer delay for staggered effect */
+  padding-right: 50px;
+}
